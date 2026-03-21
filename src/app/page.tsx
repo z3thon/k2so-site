@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 const DOWNLOAD_URL =
-	"https://github.com/z3thon/K2SO/releases/download/v0.9.0/K2SO_0.9.0_aarch64.dmg";
-const REPO_URL = "https://github.com/z3thon/K2SO";
+	"https://github.com/Alakazam-211/K2SO/releases/download/v0.9.0/K2SO_0.9.0_aarch64.dmg";
+const REPO_URL = "https://github.com/Alakazam-211/K2SO";
 const VERSION = "0.9.0";
 
 const AGENTS = [
@@ -248,7 +248,7 @@ export default function Home() {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						github.com/z3thon/K2SO
+						github.com/Alakazam-211/K2SO
 					</a>
 				</div>
 			</section>
