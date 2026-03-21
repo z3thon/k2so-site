@@ -1,8 +1,9 @@
 import Image from "next/image";
 
 const DOWNLOAD_URL =
-	"https://github.com/AlakazamLabs/K2SO/releases/latest/download/K2SO-arm64.dmg";
-const REPO_URL = "https://github.com/AlakazamLabs/K2SO";
+	"https://github.com/z3thon/K2SO/releases/download/v0.9.0/K2SO_0.9.0_aarch64.dmg";
+const REPO_URL = "https://github.com/z3thon/K2SO";
+const VERSION = "0.9.0";
 
 const AGENTS = [
 	{ name: "Claude", cmd: "claude" },
@@ -19,18 +20,15 @@ export default function Home() {
 	return (
 		<main className="min-h-screen flex flex-col">
 			{/* Nav */}
-			<nav className="flex items-center justify-between px-6 py-4 border-b border-[var(--border)]">
-				<div className="flex items-center gap-3">
-					<Image
-						src="/k2so-logo.jpg"
-						alt="K2SO"
-						width={28}
-						height={28}
-						className="opacity-90"
-						priority
-					/>
-					<span className="text-sm font-semibold tracking-wide">K2SO</span>
-				</div>
+			<nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-6 py-3 border border-[var(--border)] bg-[#0a0a0a]/90 backdrop-blur-sm" style={{ width: 'min(768px, calc(100% - 32px))' }}>
+				<Image
+					src="/k2so-logo.jpg"
+					alt="K2SO"
+					width={36}
+					height={36}
+					className="opacity-90"
+					priority
+				/>
 				<div className="flex items-center gap-4 text-sm">
 					<a
 						href={REPO_URL}
@@ -50,18 +48,26 @@ export default function Home() {
 			</nav>
 
 			{/* Hero */}
-			<section className="flex-1 flex flex-col items-center justify-center px-6 py-32 text-center">
-				<p className="text-xs tracking-[0.3em] text-[var(--accent)] mb-6 uppercase">
-					Not an IDE
-				</p>
+			<section className="flex-1 flex flex-col items-center justify-center px-6 pt-36 pb-32 text-center">
+				<Image
+					src="/k2so-logo.jpg"
+					alt="K2SO"
+					width={120}
+					height={120}
+					className="opacity-90 mb-8"
+					priority
+				/>
 
-				<h1 className="text-5xl sm:text-6xl font-bold tracking-tight mb-6">
+				<h1 className="text-5xl sm:text-6xl font-bold tracking-tight mb-2">
 					Your AI Workspace
 				</h1>
 
-				<p className="text-base text-[var(--muted)] max-w-lg mb-4 leading-relaxed">
+				<p className="text-xs tracking-[0.3em] text-[var(--accent)] mb-8 uppercase">
+					Not an IDE
+				</p>
+
+				<p className="text-base text-[var(--muted)] max-w-2xl mb-4 leading-relaxed">
 					Orchestrate AI agents. Review documents. Manage terminals.
-					<br />
 					K2SO is where you collaborate with AI — not where you type code.
 				</p>
 
@@ -109,6 +115,7 @@ export default function Home() {
 							<line x1="12" y1="15" x2="12" y2="3" />
 						</svg>
 						Download for macOS
+						<span className="text-xs opacity-60 ml-1">v{VERSION}</span>
 					</a>
 
 					<a
@@ -192,35 +199,35 @@ export default function Home() {
 					</h2>
 					<div className="grid gap-4 sm:grid-cols-2">
 						<div className="feature-card">
-							<h3>Document Review</h3>
+							<h3>Split Tab Groups</h3>
 							<p>
-								View and review .md, .pdf, and .docx files with dark-themed
-								rendering. Read-first, not write-first. Markdown with syntax
-								highlighting, PDFs with native rendering.
+								Split the terminal area into up to 3 independent columns, each
+								with its own tab bar. Drag tabs between columns. Resize freely.
+								Natural text editing with macOS shortcuts built in.
 							</p>
 						</div>
 						<div className="feature-card">
-							<h3>Terminal-First</h3>
+							<h3>Terminal Persistence</h3>
 							<p>
-								Multiple terminal tabs with split panes via react-mosaic.
-								GPU-accelerated rendering with xterm.js + WebGL. This is where
-								the work happens.
+								Terminal PTYs survive tab switches via a scrollback buffer.
+								Switch tabs without losing output. Chat sessions resume
+								automatically on app restart.
 							</p>
 						</div>
 						<div className="feature-card">
-							<h3>Git Worktree Management</h3>
+							<h3>Git Worktrees & Pinning</h3>
 							<p>
-								Organize workspaces with git worktrees and focus groups. Each
-								worktree gets its own terminal state, its own agent sessions,
-								its own context.
+								Create worktrees from new or existing branches. Pin workspaces
+								above focus groups for quick access. Organize projects with
+								focus groups and custom icons.
 							</p>
 						</div>
 						<div className="feature-card">
 							<h3>Tauri + Rust</h3>
 							<p>
 								~5MB binary vs ~200MB Electron apps. Native PTY via
-								portable-pty. SQLite via rusqlite. Git operations via git2. Fast
-								startup, low memory.
+								portable-pty. SQLite via rusqlite. Local LLM via llama.cpp with
+								Metal GPU. Fast startup, low memory.
 							</p>
 						</div>
 					</div>
@@ -241,7 +248,7 @@ export default function Home() {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						github.com/AlakazamLabs/K2SO
+						github.com/z3thon/K2SO
 					</a>
 				</div>
 			</section>
