@@ -1,64 +1,102 @@
 import Image from "next/image";
 
 const DOWNLOAD_URL =
-	"https://github.com/z3thon/superset/releases/latest/download/K2SO-arm64.dmg";
-const SUPERSET_URL = "https://superset.sh";
-const SUPERSET_LICENSE_URL =
-	"https://github.com/superset-sh/superset/blob/main/LICENSE";
-const FORK_REPO_URL = "https://github.com/z3thon/superset";
+	"https://github.com/AlakazamLabs/K2SO/releases/latest/download/K2SO-arm64.dmg";
+const REPO_URL = "https://github.com/AlakazamLabs/K2SO";
+
+const AGENTS = [
+	{ name: "Claude", cmd: "claude" },
+	{ name: "Codex", cmd: "codex" },
+	{ name: "Gemini", cmd: "gemini" },
+	{ name: "Copilot", cmd: "gh copilot" },
+	{ name: "Aider", cmd: "aider" },
+	{ name: "Cursor Agent", cmd: "cursor-agent" },
+	{ name: "OpenCode", cmd: "opencode" },
+	{ name: "Code Puppy", cmd: "codepuppy" },
+];
 
 export default function Home() {
 	return (
 		<main className="min-h-screen flex flex-col">
-			{/* Hero */}
-			<section className="flex-1 flex flex-col items-center justify-center px-6 py-24 text-center">
-				<div className="mb-8">
+			{/* Nav */}
+			<nav className="flex items-center justify-between px-6 py-4 border-b border-[var(--border)]">
+				<div className="flex items-center gap-3">
 					<Image
 						src="/k2so-logo.jpg"
 						alt="K2SO"
-						width={140}
-						height={140}
-						className="rounded-3xl shadow-2xl"
+						width={28}
+						height={28}
+						className="opacity-90"
 						priority
 					/>
+					<span className="text-sm font-semibold tracking-wide">K2SO</span>
 				</div>
-
-				<h1 className="text-5xl font-bold tracking-tight mb-4">K2SO</h1>
-
-				<p className="text-lg text-[var(--muted)] max-w-xl mb-2">
-					A custom fork of{" "}
+				<div className="flex items-center gap-4 text-sm">
 					<a
-						href={SUPERSET_URL}
-						className="underline hover:text-white transition-colors"
+						href={REPO_URL}
+						className="text-[var(--muted)] hover:text-white transition-colors"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						Superset
-					</a>{" "}
-					with enhanced multi-window workflows, per-project worktree management,
-					and focus-driven development tools.
-				</p>
-
-				<p className="text-sm text-[var(--muted)] mb-10">
-					Built and maintained by{" "}
-					<a
-						href="https://alakazamlabs.com"
-						className="underline hover:text-white transition-colors"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Alakazam Labs
+						GitHub
 					</a>
-				</p>
-
-				<div className="flex gap-4 items-center">
 					<a
 						href={DOWNLOAD_URL}
-						className="inline-flex items-center gap-2 bg-white text-black font-semibold px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors"
+						className="bg-[var(--accent)] text-black font-semibold px-4 py-1.5 hover:opacity-90 transition-opacity text-xs tracking-wide"
+					>
+						DOWNLOAD
+					</a>
+				</div>
+			</nav>
+
+			{/* Hero */}
+			<section className="flex-1 flex flex-col items-center justify-center px-6 py-32 text-center">
+				<p className="text-xs tracking-[0.3em] text-[var(--accent)] mb-6 uppercase">
+					Not an IDE
+				</p>
+
+				<h1 className="text-5xl sm:text-6xl font-bold tracking-tight mb-6">
+					Your AI Workspace
+				</h1>
+
+				<p className="text-base text-[var(--muted)] max-w-lg mb-4 leading-relaxed">
+					Orchestrate AI agents. Review documents. Manage terminals.
+					<br />
+					K2SO is where you collaborate with AI — not where you type code.
+				</p>
+
+				<p className="text-sm text-[var(--dim)] mb-12">
+					Built with Tauri + Rust. ~5MB binary. Open source (MIT).
+				</p>
+
+				{/* Terminal demo */}
+				<div className="terminal-preview w-full max-w-lg text-left mb-12 glow">
+					<div>
+						<span className="prompt">$ </span>
+						<span className="cmd">k2so</span>
+					</div>
+					<div className="output">workspace loaded: ~/projects/myapp</div>
+					<div className="output">3 agents available, 2 worktrees active</div>
+					<div>
+						<span className="prompt">&gt; </span>
+						<span className="cmd">
+							open 3 panels with README, CHANGELOG, and a Claude terminal
+						</span>
+					</div>
+					<div className="output">
+						configuring workspace...
+						<span className="cursor-blink" />
+					</div>
+				</div>
+
+				<div className="flex gap-4 items-center flex-wrap justify-center">
+					<a
+						href={DOWNLOAD_URL}
+						className="inline-flex items-center gap-2 bg-white text-black font-semibold px-6 py-3 hover:bg-gray-200 transition-colors text-sm"
 					>
 						<svg
-							width="20"
-							height="20"
+							width="16"
+							height="16"
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="currentColor"
@@ -74,8 +112,8 @@ export default function Home() {
 					</a>
 
 					<a
-						href={FORK_REPO_URL}
-						className="inline-flex items-center gap-2 border border-gray-700 text-gray-300 font-medium px-6 py-3 rounded-lg hover:border-gray-500 hover:text-white transition-colors"
+						href={REPO_URL}
+						className="inline-flex items-center gap-2 border border-[var(--border)] text-[var(--muted)] font-medium px-6 py-3 hover:border-[#333] hover:text-white transition-colors text-sm"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
@@ -84,88 +122,150 @@ export default function Home() {
 				</div>
 			</section>
 
-			{/* Features */}
-			<section className="border-t border-gray-800 px-6 py-16">
+			{/* AI Workspace Assistant */}
+			<section className="border-t border-[var(--border)] px-6 py-20">
 				<div className="max-w-3xl mx-auto">
-					<h2 className="text-2xl font-semibold mb-8 text-center">
-						What&apos;s different in K2SO
-					</h2>
-					<div className="grid gap-6 sm:grid-cols-2">
-						<Feature
-							title="Multi-Window"
-							description="Open multiple windows with independent tab states. Focus windows show only one project."
-						/>
-						<Feature
-							title="Per-Project Worktrees"
-							description="Enable or disable git worktrees on a per-project basis. Branch-only mode for simpler repos."
-						/>
-						<Feature
-							title="Independent Side Panels"
-							description="Left and right panels open and close independently with dedicated toggle buttons."
-						/>
-						<Feature
-							title="Terminal Zoom"
-							description="Cmd+Shift+=/- to zoom terminal font size independently of the app zoom level."
-						/>
-						<Feature
-							title="File Tree Pane"
-							description="Drag a file tree into any split pane for quick file navigation alongside terminals."
-						/>
-						<Feature
-							title="Enhanced Project Settings"
-							description="Split-pane settings page with icon detection, workspace listings, and streamlined navigation."
-						/>
+					<div className="flex items-center gap-3 mb-4">
+						<h2 className="text-2xl font-semibold">
+							AI Workspace Assistant
+						</h2>
+						<span className="kbd">
+							<span className="text-[10px]">&#8984;</span>L
+						</span>
+					</div>
+					<p className="text-[var(--muted)] text-sm mb-8 max-w-lg leading-relaxed">
+						A built-in lightweight local LLM (Qwen2.5-1.5B) that configures
+						your workspace from natural language. Describe what you want and
+						it arranges panels, opens files, and launches agents.
+					</p>
+					<div className="terminal-preview max-w-lg">
+						<div className="text-[var(--dim)] text-xs mb-2">
+							# press Cmd+L to open
+						</div>
+						<div>
+							<span className="prompt">ask: </span>
+							<span className="cmd">
+								split vertically, left panel has the README, right has a Claude
+								terminal
+							</span>
+						</div>
+						<div className="output mt-1">
+							opening README.md in left pane...
+						</div>
+						<div className="output">
+							launching claude in right pane...
+						</div>
+						<div className="output">done.</div>
 					</div>
 				</div>
 			</section>
 
-			{/* Legal / Attribution */}
-			<footer className="border-t border-gray-800 px-6 py-8">
-				<div className="max-w-3xl mx-auto text-center text-sm text-[var(--muted)] space-y-3">
+			{/* Agent Quick Launch */}
+			<section className="border-t border-[var(--border)] px-6 py-20">
+				<div className="max-w-3xl mx-auto">
+					<h2 className="text-2xl font-semibold mb-4">
+						CLI Agent Integration
+					</h2>
+					<p className="text-[var(--muted)] text-sm mb-8 max-w-lg leading-relaxed">
+						One click opens an agent in a terminal tab. No custom harnesses, no
+						wrappers — K2SO runs CLI tools directly. Bring your own API keys.
+					</p>
+					<div className="flex flex-wrap gap-2">
+						{AGENTS.map((agent) => (
+							<div key={agent.name} className="agent-btn">
+								<span className="text-[var(--accent)] text-xs">$</span>
+								<span>{agent.name}</span>
+							</div>
+						))}
+					</div>
+					<p className="text-xs text-[var(--dim)] mt-4">
+						Each button runs the agent&apos;s CLI command in a new terminal tab.
+					</p>
+				</div>
+			</section>
+
+			{/* Features Grid */}
+			<section className="border-t border-[var(--border)] px-6 py-20">
+				<div className="max-w-3xl mx-auto">
+					<h2 className="text-2xl font-semibold mb-10 text-center">
+						Built for the workflow
+					</h2>
+					<div className="grid gap-4 sm:grid-cols-2">
+						<div className="feature-card">
+							<h3>Document Review</h3>
+							<p>
+								View and review .md, .pdf, and .docx files with dark-themed
+								rendering. Read-first, not write-first. Markdown with syntax
+								highlighting, PDFs with native rendering.
+							</p>
+						</div>
+						<div className="feature-card">
+							<h3>Terminal-First</h3>
+							<p>
+								Multiple terminal tabs with split panes via react-mosaic.
+								GPU-accelerated rendering with xterm.js + WebGL. This is where
+								the work happens.
+							</p>
+						</div>
+						<div className="feature-card">
+							<h3>Git Worktree Management</h3>
+							<p>
+								Organize workspaces with git worktrees and focus groups. Each
+								worktree gets its own terminal state, its own agent sessions,
+								its own context.
+							</p>
+						</div>
+						<div className="feature-card">
+							<h3>Tauri + Rust</h3>
+							<p>
+								~5MB binary vs ~200MB Electron apps. Native PTY via
+								portable-pty. SQLite via rusqlite. Git operations via git2. Fast
+								startup, low memory.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Open Source */}
+			<section className="border-t border-[var(--border)] px-6 py-20">
+				<div className="max-w-3xl mx-auto text-center">
+					<h2 className="text-2xl font-semibold mb-4">Open Source (MIT)</h2>
+					<p className="text-[var(--muted)] text-sm mb-8 max-w-md mx-auto leading-relaxed">
+						K2SO is fully open source under the MIT license. Read the code,
+						learn from it, fork it, build on top of it.
+					</p>
+					<a
+						href={REPO_URL}
+						className="inline-flex items-center gap-2 border border-[var(--border)] text-[var(--muted)] font-medium px-6 py-3 hover:border-[#333] hover:text-white transition-colors text-sm"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						github.com/AlakazamLabs/K2SO
+					</a>
+				</div>
+			</section>
+
+			{/* Footer */}
+			<footer className="border-t border-[var(--border)] px-6 py-8">
+				<div className="max-w-3xl mx-auto text-center text-xs text-[var(--dim)] space-y-2">
 					<p>
-						K2SO is a derivative work of{" "}
+						K2SO is built by{" "}
 						<a
-							href={SUPERSET_URL}
-							className="underline hover:text-white"
+							href="https://alakazamlabs.com"
+							className="text-[var(--muted)] hover:text-white"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							Superset
-						</a>{" "}
-						by Superset, Inc. Distributed under the{" "}
-						<a
-							href={SUPERSET_LICENSE_URL}
-							className="underline hover:text-white"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Elastic License 2.0
+							Alakazam Labs
 						</a>
-						.
 					</p>
 					<p>
-						This software has been modified from its original version.
-						Superset&trade; is a trademark of Superset, Inc. K2SO is not
-						affiliated with or endorsed by Superset, Inc.
-					</p>
-					<p>
-						Copyright &copy; 2025-{new Date().getFullYear()} Superset, Inc.
-						Modifications by Alakazam Labs.
+						Copyright &copy; {new Date().getFullYear()} Alakazam Labs. MIT
+						License.
 					</p>
 				</div>
 			</footer>
 		</main>
-	);
-}
-
-function Feature({
-	title,
-	description,
-}: { title: string; description: string }) {
-	return (
-		<div className="border border-gray-800 rounded-lg p-5">
-			<h3 className="font-semibold mb-1">{title}</h3>
-			<p className="text-sm text-[var(--muted)]">{description}</p>
-		</div>
 	);
 }

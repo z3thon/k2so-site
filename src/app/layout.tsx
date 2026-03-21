@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-	title: "K2SO — Developer Workspace",
+	title: "K2SO — Your AI Workspace",
 	description:
-		"K2SO is a custom fork of Superset, tailored for teams that need per-project worktree management, multi-window workflows, and focus-driven development.",
+		"K2SO is a workspace for AI collaboration. Orchestrate CLI agents, review documents, and manage terminals — all in a ~5MB Tauri app.",
 };
 
 export default function RootLayout({
