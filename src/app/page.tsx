@@ -100,7 +100,7 @@ export default async function Home() {
 				</h1>
 
 				<p className="text-xs tracking-[0.3em] text-[var(--accent)] mb-8 uppercase">
-					Not an IDE
+					Not your normal IDE.
 				</p>
 
 				<p className="text-base text-[var(--muted)] max-w-2xl mb-4 leading-relaxed">
