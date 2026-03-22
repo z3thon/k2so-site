@@ -95,6 +95,7 @@ export default function Home() {
 					</div>
 				</div>
 
+				<div className="flex flex-col items-center gap-3">
 				<div className="flex gap-4 items-center flex-wrap justify-center">
 					<a
 						href={DOWNLOAD_URL}
@@ -115,7 +116,6 @@ export default function Home() {
 							<line x1="12" y1="15" x2="12" y2="3" />
 						</svg>
 						Download for macOS
-						<span className="text-xs opacity-60 ml-1">v{VERSION}</span>
 					</a>
 
 					<a
@@ -126,6 +126,8 @@ export default function Home() {
 					>
 						View Source
 					</a>
+				</div>
+				<span className="text-[11px] text-[var(--dim)] tracking-wide">v{VERSION} — Apple Silicon</span>
 				</div>
 			</section>
 
