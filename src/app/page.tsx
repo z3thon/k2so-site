@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 const DOWNLOAD_URL =
-	"https://github.com/Alakazam-211/K2SO/releases/download/v0.9.0/K2SO_0.9.0_aarch64.dmg";
+	"https://github.com/Alakazam-211/K2SO/releases/download/v0.10.0/K2SO_0.10.0_aarch64.dmg";
 const REPO_URL = "https://github.com/Alakazam-211/K2SO";
-const VERSION = "0.9.0";
+const VERSION = "0.10.0";
 
 const AGENTS = [
 	{ name: "Claude", cmd: "claude" },
