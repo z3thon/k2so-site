@@ -1,9 +1,32 @@
 import Image from "next/image";
 
-const DOWNLOAD_URL =
-	"https://github.com/Alakazam-211/K2SO/releases/download/v0.10.0/K2SO_0.10.0_aarch64.dmg";
 const REPO_URL = "https://github.com/Alakazam-211/K2SO";
-const VERSION = "0.10.0";
+
+// Fetch latest release version from GitHub at build time
+async function getLatestRelease(): Promise<{ version: string; downloadUrl: string }> {
+	const fallbackVersion = "0.10.0";
+	try {
+		const res = await fetch(
+			"https://api.github.com/repos/Alakazam-211/K2SO/releases/latest",
+			{ next: { revalidate: 300 } } // revalidate every 5 minutes
+		);
+		if (!res.ok) throw new Error("GitHub API error");
+		const data = await res.json();
+		const tag = (data.tag_name as string) ?? `v${fallbackVersion}`;
+		const version = tag.replace(/^v/, "");
+		// Find the DMG asset
+		const dmgAsset = (data.assets as Array<{ name: string; browser_download_url: string }>)
+			?.find((a) => a.name.endsWith(".dmg"));
+		const downloadUrl = dmgAsset?.browser_download_url
+			?? `https://github.com/Alakazam-211/K2SO/releases/download/${tag}/K2SO_${version}_aarch64.dmg`;
+		return { version, downloadUrl };
+	} catch {
+		return {
+			version: fallbackVersion,
+			downloadUrl: `https://github.com/Alakazam-211/K2SO/releases/download/v${fallbackVersion}/K2SO_${fallbackVersion}_aarch64.dmg`,
+		};
+	}
+}
 
 const AGENTS = [
 	{ name: "Claude", cmd: "claude" },
@@ -16,7 +39,8 @@ const AGENTS = [
 	{ name: "Code Puppy", cmd: "codepuppy" },
 ];
 
-export default function Home() {
+export default async function Home() {
+	const { version: VERSION, downloadUrl: DOWNLOAD_URL } = await getLatestRelease();
 	return (
 		<main className="min-h-screen flex flex-col">
 			{/* Nav */}
