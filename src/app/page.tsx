@@ -230,35 +230,75 @@ export default async function Home() {
 				</div>
 			</section>
 
+			{/* Built for teams */}
+			<section className="border-t border-[var(--border)] px-6 py-20">
+				<div className="max-w-3xl mx-auto">
+					<h2 className="text-2xl font-semibold mb-4">
+						Built for agencies & teams
+					</h2>
+					<p className="text-[var(--muted)] text-sm mb-8 max-w-lg leading-relaxed">
+						Managing multiple client projects shouldn&apos;t mean multiple tools.
+						K2SO keeps every project, branch, and agent session organized in one
+						workspace — so your team ships faster without context-switching.
+					</p>
+					<div className="grid gap-4 sm:grid-cols-3">
+						<div className="feature-card">
+							<h3>Multi-Project Workspace</h3>
+							<p>
+								Organize client projects into focus groups. Pin your active
+								engagements. Switch between projects instantly with the sidebar
+								or command palette.
+							</p>
+						</div>
+						<div className="feature-card">
+							<h3>Parallel Workflows</h3>
+							<p>
+								Split into up to 3 columns — review one client&apos;s PR on the
+								left while an agent writes code for another on the right.
+								Drag tabs between columns freely.
+							</p>
+						</div>
+						<div className="feature-card">
+							<h3>Branch per Client</h3>
+							<p>
+								Git worktrees let you work on multiple branches simultaneously
+								without stashing or switching. Each client gets their own
+								isolated workspace.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
 			{/* Features Grid */}
 			<section className="border-t border-[var(--border)] px-6 py-20">
 				<div className="max-w-3xl mx-auto">
 					<h2 className="text-2xl font-semibold mb-10 text-center">
-						Built for the workflow
+						Under the hood
 					</h2>
 					<div className="grid gap-4 sm:grid-cols-2">
 						<div className="feature-card">
-							<h3>Split Tab Groups</h3>
+							<h3>Code Editor</h3>
 							<p>
-								Split the terminal area into up to 3 independent columns, each
-								with its own tab bar. Drag tabs between columns. Resize freely.
-								Natural text editing with macOS shortcuts built in.
+								Full editing with syntax highlighting for 30+ languages.
+								Cmd+S to save, Cmd+Z to undo, bracket matching, search —
+								all the shortcuts you expect, built in.
 							</p>
 						</div>
 						<div className="feature-card">
 							<h3>Terminal Persistence</h3>
 							<p>
 								Terminal PTYs survive tab switches via a scrollback buffer.
-								Switch tabs without losing output. Chat sessions resume
+								Switch tabs without losing output. Agent sessions resume
 								automatically on app restart.
 							</p>
 						</div>
 						<div className="feature-card">
-							<h3>Git Worktrees & Pinning</h3>
+							<h3>Active Agent Detection</h3>
 							<p>
-								Create worktrees from new or existing branches. Pin workspaces
-								above focus groups for quick access. Organize projects with
-								focus groups and custom icons.
+								K2SO detects when an AI agent is running in a terminal and
+								warns you before closing. Never accidentally kill a long-running
+								agent session again.
 							</p>
 						</div>
 						<div className="feature-card">
