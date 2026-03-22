@@ -105,7 +105,7 @@ export default async function Home() {
 
 				<p className="text-base text-[var(--muted)] max-w-2xl mb-4 leading-relaxed">
 					Orchestrate AI agents. Review documents. Manage terminals.
-					K2SO is a next generation opensource editor built around AI collaboration.
+					K2SO is a next generation opensource IDE built around AI collaboration.
 				</p>
 
 				<p className="text-sm text-[var(--dim)] mb-12">
