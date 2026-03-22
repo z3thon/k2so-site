@@ -4,7 +4,7 @@ const REPO_URL = "https://github.com/Alakazam-211/K2SO";
 
 // Fetch latest release version from GitHub at build time
 async function getLatestRelease(): Promise<{ version: string; downloadUrl: string }> {
-	const fallbackVersion = "0.10.0";
+	const fallbackVersion = "0.9.0";
 	try {
 		const res = await fetch(
 			"https://api.github.com/repos/Alakazam-211/K2SO/releases/latest",
