@@ -4,7 +4,7 @@ const REPO_URL = "https://github.com/Alakazam-211/K2SO";
 
 // Fetch latest release version from GitHub at build time
 async function getLatestRelease(): Promise<{ version: string; downloadUrl: string }> {
-	const fallbackVersion = "0.9.0";
+	const fallbackVersion = "0.10.1";
 	try {
 		const res = await fetch(
 			"https://api.github.com/repos/Alakazam-211/K2SO/releases/latest",
@@ -45,14 +45,27 @@ export default async function Home() {
 		<main className="min-h-screen flex flex-col">
 			{/* Nav */}
 			<nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-6 py-3 border border-[var(--border)] bg-[#0a0a0a]/90 backdrop-blur-sm" style={{ width: 'min(768px, calc(100% - 32px))' }}>
-				<Image
-					src="/k2so-logo.jpg"
-					alt="K2SO"
-					width={36}
-					height={36}
-					className="opacity-90"
-					priority
-				/>
+				<div className="flex items-center gap-2.5">
+					<a href="https://alakazamlabs.com" target="_blank" rel="noopener noreferrer">
+						<Image
+							src="/alakzm-logo.jpg"
+							alt="Alakazam Labs"
+							width={32}
+							height={32}
+							className="opacity-90 hover:opacity-100 transition-opacity"
+							priority
+						/>
+					</a>
+					<span className="text-[var(--muted)] text-lg font-light select-none">/</span>
+					<Image
+						src="/k2so-logo.jpg"
+						alt="K2SO"
+						width={32}
+						height={32}
+						className="opacity-90"
+						priority
+					/>
+				</div>
 				<div className="flex items-center gap-4 text-sm">
 					<a
 						href={REPO_URL}
