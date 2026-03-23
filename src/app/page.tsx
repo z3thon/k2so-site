@@ -68,6 +68,12 @@ export default async function Home() {
 				</div>
 				<div className="flex items-center gap-4 text-sm">
 					<a
+						href="/changelog"
+						className="text-[var(--muted)] hover:text-white transition-colors"
+					>
+						What&apos;s New
+					</a>
+					<a
 						href={REPO_URL}
 						className="text-[var(--muted)] hover:text-white transition-colors"
 						target="_blank"
