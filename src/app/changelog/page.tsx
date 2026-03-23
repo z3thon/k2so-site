@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const REPO_URL = "https://github.com/Alakazam-211/K2SO";
+
 interface ReleaseAsset {
 	name: string;
 	browser_download_url: string;
@@ -99,6 +101,11 @@ export const metadata = {
 export default async function ChangelogPage() {
 	const releases = await getReleases();
 
+	// Get download URL from latest release
+	const latestDmg = releases[0]?.assets.find((a) => a.name.endsWith(".dmg"));
+	const downloadUrl = latestDmg?.browser_download_url
+		?? `https://github.com/Alakazam-211/K2SO/releases/latest`;
+
 	return (
 		<main className="min-h-screen flex flex-col">
 			{/* Nav */}
@@ -126,16 +133,35 @@ export default async function ChangelogPage() {
 						/>
 					</Link>
 				</div>
-				<div className="flex items-center gap-4 text-sm">
-					<span className="text-[var(--accent)] text-xs font-medium">
-						What&apos;s New
-					</span>
+				<div className="flex items-center gap-5 text-sm">
 					<Link
 						href="/"
-						className="text-[var(--muted)] hover:text-white transition-colors"
+						className="text-[var(--muted)] hover:text-white transition-colors text-xs"
 					>
 						Home
 					</Link>
+					<span className="text-[var(--accent)] text-xs font-medium">
+						What&apos;s New
+					</span>
+					<a
+						href={REPO_URL}
+						className="inline-flex items-center gap-1 text-[var(--muted)] hover:text-white transition-colors text-xs"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						GitHub
+						<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-50">
+							<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+							<polyline points="15 3 21 3 21 9" />
+							<line x1="10" y1="14" x2="21" y2="3" />
+						</svg>
+					</a>
+					<a
+						href={downloadUrl}
+						className="bg-[var(--accent)] text-black font-semibold px-4 py-1.5 hover:opacity-90 transition-opacity text-xs tracking-wide"
+					>
+						DOWNLOAD
+					</a>
 				</div>
 			</nav>
 

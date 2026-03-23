@@ -66,20 +66,25 @@ export default async function Home() {
 						priority
 					/>
 				</div>
-				<div className="flex items-center gap-4 text-sm">
+				<div className="flex items-center gap-5 text-sm">
 					<a
 						href="/changelog"
-						className="text-[var(--muted)] hover:text-white transition-colors"
+						className="text-[var(--muted)] hover:text-white transition-colors text-xs"
 					>
 						What&apos;s New
 					</a>
 					<a
 						href={REPO_URL}
-						className="text-[var(--muted)] hover:text-white transition-colors"
+						className="inline-flex items-center gap-1 text-[var(--muted)] hover:text-white transition-colors text-xs"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
 						GitHub
+						<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-50">
+							<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+							<polyline points="15 3 21 3 21 9" />
+							<line x1="10" y1="14" x2="21" y2="3" />
+						</svg>
 					</a>
 					<a
 						href={DOWNLOAD_URL}
