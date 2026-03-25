@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+import Nav from "@/components/Nav";
 
 const REPO_URL = "https://github.com/Alakazam-211/K2SO";
 
@@ -108,62 +107,7 @@ export default async function ChangelogPage() {
 
 	return (
 		<main className="min-h-screen flex flex-col">
-			{/* Nav */}
-			<nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-6 py-3 border border-[var(--border)] bg-[#0a0a0a]/90 backdrop-blur-sm" style={{ width: 'min(768px, calc(100% - 32px))' }}>
-				<div className="flex items-center gap-2.5">
-					<a href="https://alakazamlabs.com" target="_blank" rel="noopener noreferrer">
-						<Image
-							src="/alakzm-logo.jpg"
-							alt="Alakazam Labs"
-							width={32}
-							height={32}
-							className="opacity-90 hover:opacity-100 transition-opacity"
-							priority
-						/>
-					</a>
-					<span className="text-[var(--muted)] text-lg font-light select-none">/</span>
-					<Link href="/">
-						<Image
-							src="/k2so-logo.jpg"
-							alt="K2SO"
-							width={32}
-							height={32}
-							className="opacity-90 hover:opacity-100 transition-opacity"
-							priority
-						/>
-					</Link>
-				</div>
-				<div className="flex items-center gap-5 text-sm">
-					<Link
-						href="/"
-						className="text-[var(--muted)] hover:text-white transition-colors text-xs"
-					>
-						Home
-					</Link>
-					<span className="text-[var(--accent)] text-xs font-medium">
-						What&apos;s New
-					</span>
-					<a
-						href={REPO_URL}
-						className="inline-flex items-center gap-1 text-[var(--muted)] hover:text-white transition-colors text-xs"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						GitHub
-						<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-50">
-							<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-							<polyline points="15 3 21 3 21 9" />
-							<line x1="10" y1="14" x2="21" y2="3" />
-						</svg>
-					</a>
-					<a
-						href={downloadUrl}
-						className="bg-[var(--accent)] text-black font-semibold px-4 py-1.5 hover:opacity-90 transition-opacity text-xs tracking-wide"
-					>
-						DOWNLOAD
-					</a>
-				</div>
-			</nav>
+			<Nav downloadUrl={downloadUrl} />
 
 			{/* Content */}
 			<div className="max-w-2xl mx-auto px-6 pt-28 pb-20 w-full">
