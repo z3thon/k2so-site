@@ -5,3 +5,6 @@ dist
 .env
 .env.local
 .vercel
+.worktrees/
+.k2so/
+next-env.d.ts
