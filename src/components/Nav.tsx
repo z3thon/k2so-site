@@ -41,6 +41,9 @@ export default function Nav({ downloadUrl }: { downloadUrl: string }) {
 					<Link href="/" className="text-[var(--muted)] hover:text-white transition-colors text-xs">
 						Home
 					</Link>
+					<Link href="/companion" className="text-[var(--muted)] hover:text-white transition-colors text-xs">
+						Companion
+					</Link>
 					<Link href="/changelog" className="text-[var(--muted)] hover:text-white transition-colors text-xs">
 						What&apos;s New
 					</Link>
@@ -100,6 +103,13 @@ export default function Nav({ downloadUrl }: { downloadUrl: string }) {
 						className="text-[var(--muted)] hover:text-white transition-colors text-sm py-2"
 					>
 						Home
+					</Link>
+					<Link
+						href="/companion"
+						onClick={() => setOpen(false)}
+						className="text-[var(--muted)] hover:text-white transition-colors text-sm py-2"
+					>
+						Companion
 					</Link>
 					<Link
 						href="/changelog"
