@@ -1,0 +1,28 @@
+# K2SO
+
+> K2SO is an AI workspace for orchestrating CLI agents, reviewing documents, and managing terminals — all in a ~5MB Tauri + Rust desktop app.
+
+## Overview
+
+K2SO is a lightweight desktop application built with Tauri v2 and Rust. It provides a unified workspace for running and managing AI coding agents (Claude, Codex, Gemini, Copilot, Aider, and more). It includes a built-in code editor, persistent terminals, active agent detection, and multi-project support designed for agencies and teams.
+
+## Key Features
+
+- Multi-agent orchestration: run multiple CLI LLM agents in parallel
+- Built-in AI assistant powered by local Qwen2.5-1.5B model
+- Code editor with terminal persistence
+- Branch-per-client workflow for agencies
+- Active agent detection across terminals
+- ~5MB binary, open source (MIT)
+
+## K2SO Companion
+
+K2SO Companion is a mobile app (iOS/Android) that connects to your K2SO workspace remotely. It lets you monitor running agents, chat with LLM sessions, and approve agent work reviews from your phone. Built with Tauri v2 + Rust. No cloud service required — connects via ngrok with username/password authentication.
+
+## Links
+
+- Website: https://k2so.sh
+- Companion: https://k2so.sh/companion
+- Changelog: https://k2so.sh/changelog
+- GitHub: https://github.com/Alakazam-211/K2SO
+- Built by: Alakazam Labs (https://alakazamlabs.com)
