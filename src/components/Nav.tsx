@@ -24,7 +24,7 @@ export default function Nav({ downloadUrl }: { downloadUrl: string }) {
 						/>
 					</a>
 					<span className="text-[var(--muted)] text-base sm:text-lg font-light select-none">/</span>
-					<Link href="/">
+					<Link href="/" prefetch={false}>
 						<Image
 							src="/k2so-logo.jpg"
 							alt="K2SO"
@@ -38,7 +38,7 @@ export default function Nav({ downloadUrl }: { downloadUrl: string }) {
 
 				{/* Desktop links */}
 				<div className="hidden sm:flex items-center gap-5 text-sm">
-					<Link href="/" className="text-[var(--muted)] hover:text-white transition-colors text-xs">
+					<Link href="/" prefetch={false} className="text-[var(--muted)] hover:text-white transition-colors text-xs">
 						Home
 					</Link>
 					<Link href="/companion" className="text-[var(--muted)] hover:text-white transition-colors text-xs">

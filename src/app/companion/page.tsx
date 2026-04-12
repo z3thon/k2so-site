@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Nav from "@/components/Nav";
 
 export const metadata: Metadata = {
@@ -26,6 +27,15 @@ export default function CompanionPage() {
 						</p>
 						<div className="inline-block border border-[var(--border)] bg-[var(--surface)] px-8 py-3 text-[var(--accent)] text-sm">
 							Coming Soon
+						</div>
+
+						<div className="mt-8">
+							<Link
+								href="/privacy"
+								className="text-xs text-[var(--dim)] hover:text-[var(--muted)] transition-colors"
+							>
+								Privacy Policy
+							</Link>
 						</div>
 					</div>
 				</section>
