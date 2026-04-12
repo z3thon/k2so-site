@@ -74,7 +74,7 @@ export default async function Home() {
 				</p>
 
 				<p className="text-sm text-[var(--dim)] mb-12">
-					Built with Tauri + Rust. ~5MB binary. Open source (MIT).
+					Built with Tauri + Rust. ~25MB binary. Open source (MIT).
 				</p>
 
 				{/* Hero mockup — full app with icon rail, file tree, tabs, terminal */}
@@ -906,7 +906,7 @@ export default async function Home() {
 						<div className="feature-card">
 							<h3>Tauri + Rust</h3>
 							<p>
-								~5MB binary vs ~200MB Electron apps. Native PTY via
+								~25MB binary vs ~250MB+ Electron apps. Native PTY via
 								portable-pty. SQLite via rusqlite. Local LLM via llama.cpp with
 								Metal GPU. Fast startup, low memory.
 							</p>

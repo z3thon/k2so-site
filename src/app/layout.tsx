@@ -5,12 +5,12 @@ import "./globals.css";
 export const metadata: Metadata = {
 	title: "K2SO — Your AI Workspace",
 	description:
-		"K2SO is a workspace for AI collaboration. Orchestrate CLI agents, review documents, and manage terminals — all in a ~5MB Tauri app.",
+		"K2SO is a workspace for AI collaboration. Orchestrate CLI agents, review documents, and manage terminals — all in a ~25MB Tauri app.",
 	metadataBase: new URL("https://k2so.sh"),
 	openGraph: {
 		title: "K2SO — Your AI Workspace",
 		description:
-			"Orchestrate CLI agents, review documents, and manage terminals — all in a ~5MB Tauri + Rust desktop app.",
+			"Orchestrate CLI agents, review documents, and manage terminals — all in a ~25MB Tauri + Rust desktop app.",
 		url: "https://k2so.sh",
 		siteName: "K2SO",
 		locale: "en_US",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "K2SO — Your AI Workspace",
 		description:
-			"Orchestrate CLI agents, review documents, and manage terminals — all in a ~5MB Tauri + Rust desktop app.",
+			"Orchestrate CLI agents, review documents, and manage terminals — all in a ~25MB Tauri + Rust desktop app.",
 		images: ["/og-image.png"],
 	},
 	keywords: [

@@ -53,7 +53,7 @@ export async function GET() {
 							lineHeight: "1.6",
 						}}
 					>
-						Orchestrate CLI agents, review documents, and manage terminals — all in a ~5MB Tauri + Rust desktop app.
+						Orchestrate CLI agents, review documents, and manage terminals — all in a ~25MB Tauri + Rust desktop app.
 					</div>
 				</div>
 				<div
