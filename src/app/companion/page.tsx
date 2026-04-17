@@ -19,28 +19,13 @@ function AppStoreBadge({ className = "" }: { className?: string }) {
 			aria-label="Download on the App Store"
 			className={`inline-block hover:opacity-80 transition-opacity ${className}`}
 		>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 120 40"
-				width="156"
-				height="52"
-				role="img"
-			>
-				<rect width="120" height="40" rx="6" fill="#000" stroke="#A6A6A6" strokeWidth="0.5" />
-				{/* Apple logo */}
-				<path
-					fill="#fff"
-					d="M17.1 20.5c0-1.8 1-2.8 1-2.8s-.6-1-1.7-1c-1.2-.1-2.3.7-2.9.7-.6 0-1.5-.7-2.5-.7-1.3 0-2.5.7-3.2 1.9-1.4 2.4-.4 5.9.9 7.9.7 1 1.4 2 2.4 2 1 0 1.3-.6 2.5-.6 1.1 0 1.4.6 2.5.6 1 0 1.7-1 2.4-2 .5-.7.8-1.4 1-2.1-.9-.4-2.4-1.3-2.4-3.9zM15.2 15.3c.5-.6.9-1.5.8-2.4-.8 0-1.7.5-2.3 1.2-.5.6-.9 1.5-.8 2.3.9 0 1.8-.5 2.3-1.1z"
-				/>
-				{/* "Download on the" */}
-				<text x="31" y="17" fill="#fff" fontFamily="-apple-system, system-ui, sans-serif" fontSize="7" fontWeight="400">
-					Download on the
-				</text>
-				{/* "App Store" */}
-				<text x="31" y="30" fill="#fff" fontFamily="-apple-system, system-ui, sans-serif" fontSize="14" fontWeight="600">
-					App Store
-				</text>
-			</svg>
+			{/* eslint-disable-next-line @next/next/no-img-element */}
+			<img
+				src="/app-store-badge.svg"
+				alt="Download on the App Store"
+				width={156}
+				height={52}
+			/>
 		</a>
 	);
 }
