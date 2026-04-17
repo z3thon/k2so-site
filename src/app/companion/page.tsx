@@ -124,11 +124,11 @@ export default function CompanionPage() {
 						</h2>
 						<div className="grid gap-4 sm:grid-cols-2">
 							<div className="feature-card">
-								<h3>Agent Dashboard</h3>
+								<h3>Live Session List</h3>
 								<p>
-									See every running agent in real-time — who&apos;s working, what
-									they&apos;re on, and how many items are queued. Updates live via
-									WebSocket. No refresh needed.
+									See every running session across your workspaces in real-time.
+									Switch between active agents with a tap. Updates live via WebSocket.
+									No refresh needed.
 								</p>
 							</div>
 							<div className="feature-card">
@@ -140,10 +140,11 @@ export default function CompanionPage() {
 								</p>
 							</div>
 							<div className="feature-card">
-								<h3>Review Queue</h3>
+								<h3>Full Terminal Output</h3>
 								<p>
-									Approve, reject, or request changes on completed agent work —
-									all from mobile. One-tap approve keeps the pipeline flowing.
+									Real terminal rendering with ANSI colors, monospace fonts, and
+									scrollback. See exactly what your agent sees — no stripped-down
+									mobile summary.
 								</p>
 							</div>
 							<div className="feature-card">
@@ -190,79 +191,80 @@ export default function CompanionPage() {
 								</div>
 							</PhoneFrame>
 
-							{/* Dashboard screen */}
-							<PhoneFrame label="Dashboard">
+							{/* Sessions screen */}
+							<PhoneFrame label="Sessions">
 								<div className="flex flex-col h-full">
 									{/* Header */}
-									<div className="flex items-center justify-between px-3 py-3 border-b border-[#2a2a2a] mt-6" style={{ background: '#111' }}>
+									<div className="flex items-center justify-between px-3 py-3 border-b border-[#1a1a1a] mt-6" style={{ background: '#111' }}>
 										<div className="flex items-center gap-2">
-											<div className="w-8 h-2.5 flex items-center gap-[3px]" style={{ background: '#22d3ee', padding: '3px' }}>
-												<div className="h-[2px] w-2 bg-black" />
+											{/* Hamburger */}
+											<div className="w-6 h-6 flex flex-col items-center justify-center gap-[3px]" style={{ background: '#22d3ee' }}>
+												<div className="h-[2px] w-3 bg-black" />
+												<div className="h-[2px] w-3 bg-black" />
+												<div className="h-[2px] w-3 bg-black" />
 											</div>
 											<div className="flex items-center gap-1.5">
-												<div className="w-3 h-3 flex items-center justify-center text-[7px] font-bold text-black" style={{ background: '#3b82f6' }}>M</div>
+												<div className="w-3 h-3 flex items-center justify-center text-[7px] font-bold text-black" style={{ background: '#22d3ee' }}>M</div>
 												<span className="text-[10px] text-[#e4e4e7] font-semibold">my-project</span>
-												<span className="text-[7px] text-[#22c55e]">3</span>
+												<span className="text-[7px] text-[#22c55e]">3 agents</span>
 											</div>
 										</div>
-										<div className="text-[#71717a] text-[10px]">&#9881;</div>
-									</div>
-									{/* Counts */}
-									<div className="flex border-b border-[#2a2a2a] px-2 py-2" style={{ background: '#111' }}>
-										<div className="flex-1 text-center">
-											<div className="text-sm font-bold text-[#e4e4e7]">3</div>
-											<div className="text-[6px] text-[#71717a] uppercase">Agents</div>
-										</div>
-										<div className="w-px bg-[#2a2a2a]" />
-										<div className="flex-1 text-center">
-											<div className="text-sm font-bold text-[#e4e4e7]">2</div>
-											<div className="text-[6px] text-[#71717a] uppercase">Running</div>
-										</div>
-										<div className="w-px bg-[#2a2a2a]" />
-										<div className="flex-1 text-center">
-											<div className="text-sm font-bold text-[#e4e4e7]">1</div>
-											<div className="text-[6px] text-[#71717a] uppercase">Reviews</div>
+										<div className="flex items-center gap-2">
+											<span className="text-[#71717a] text-[10px]">&#128269;</span>
+											<div className="relative">
+												<span className="text-[#71717a] text-[11px]">&#9634;</span>
+												<span className="absolute -top-1 -right-1 w-2.5 h-2.5 flex items-center justify-center text-[6px] font-bold text-black" style={{ background: '#22d3ee' }}>3</span>
+											</div>
 										</div>
 									</div>
-									{/* Section header */}
-									<div className="px-3 pt-3 pb-1">
-										<div className="text-[7px] text-[#71717a] font-semibold tracking-widest uppercase">Active Terminals</div>
-									</div>
-									{/* Agent cards */}
-									<div className="flex-1 px-2 space-y-1.5 overflow-hidden">
-										<div className="px-3 py-2.5 border border-[#2a2a2a]" style={{ background: '#111' }}>
-											<div className="flex items-center gap-2">
+									{/* Session cards */}
+									<div className="flex-1 p-1.5 space-y-1 overflow-hidden">
+										<div className="flex items-center border border-[#1a1a1a]" style={{ background: '#111' }}>
+											<div className="w-0.5 self-stretch" style={{ background: '#22d3ee' }} />
+											<div className="flex-1 px-3 py-2.5">
+												<div className="text-[11px] text-[#e4e4e7]">Claude Code</div>
+												<div className="text-[8px] text-[#71717a] mt-0.5">my-project</div>
+											</div>
+											<div className="pr-3">
 												<div className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
-												<div className="flex-1">
-													<div className="text-[10px] text-[#e4e4e7] font-semibold">Claude Code</div>
-													<div className="text-[7px] text-[#71717a]">claude — feat/auth</div>
-												</div>
 											</div>
 										</div>
-										<div className="px-3 py-2.5 border border-[#2a2a2a]" style={{ background: '#111' }}>
-											<div className="flex items-center gap-2">
+										<div className="flex items-center border border-[#1a1a1a]" style={{ background: '#111' }}>
+											<div className="w-0.5 self-stretch" style={{ background: '#10A37F' }} />
+											<div className="flex-1 px-3 py-2.5">
+												<div className="text-[11px] text-[#e4e4e7]">Codex</div>
+												<div className="text-[8px] text-[#71717a] mt-0.5">my-project</div>
+											</div>
+											<div className="pr-3">
 												<div className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
-												<div className="flex-1">
-													<div className="text-[10px] text-[#e4e4e7] font-semibold">Codex</div>
-													<div className="text-[7px] text-[#71717a]">codex — fix/pagination</div>
-												</div>
 											</div>
 										</div>
-										<div className="px-3 py-2.5 border border-[#2a2a2a]" style={{ background: '#111' }}>
-											<div className="flex items-center gap-2">
-												<div className="w-1.5 h-1.5 rounded-full bg-[#71717a]" />
-												<div className="flex-1">
-													<div className="text-[10px] text-[#e4e4e7] font-semibold">Gemini</div>
-													<div className="text-[7px] text-[#71717a]">idle</div>
-												</div>
+										<div className="flex items-center border border-[#1a1a1a]" style={{ background: '#111' }}>
+											<div className="w-0.5 self-stretch" style={{ background: '#4285F4' }} />
+											<div className="flex-1 px-3 py-2.5">
+												<div className="text-[11px] text-[#e4e4e7]">Gemini</div>
+												<div className="text-[8px] text-[#71717a] mt-0.5">my-project</div>
+											</div>
+											<div className="pr-3">
+												<div className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
+											</div>
+										</div>
+										<div className="flex items-center border border-[#1a1a1a]" style={{ background: '#111' }}>
+											<div className="w-0.5 self-stretch" style={{ background: '#D4A574' }} />
+											<div className="flex-1 px-3 py-2.5">
+												<div className="text-[11px] text-[#e4e4e7]">Claude — review-bot</div>
+												<div className="text-[8px] text-[#71717a] mt-0.5">api-service</div>
+											</div>
+											<div className="pr-3">
+												<div className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
 											</div>
 										</div>
 									</div>
 									{/* Tab bar */}
-									<div className="flex border-t border-[#2a2a2a] py-2" style={{ background: '#111' }}>
+									<div className="flex border-t border-[#1a1a1a] py-2" style={{ background: '#111' }}>
 										<div className="flex-1 flex flex-col items-center gap-0.5">
-											<span className="text-[12px] text-[#22d3ee]">&#9638;</span>
-											<span className="text-[7px] text-[#22d3ee]">Workspaces</span>
+											<span className="text-[12px] text-[#22d3ee]">&#9776;</span>
+											<span className="text-[7px] text-[#22d3ee]">Sessions</span>
 										</div>
 										<div className="flex-1 flex flex-col items-center gap-0.5">
 											<span className="text-[12px] text-[#71717a]">&#9881;</span>
