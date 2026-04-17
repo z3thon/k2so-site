@@ -64,13 +64,13 @@ export default async function Home() {
 				</h1>
 
 				<p className="text-xs tracking-[0.3em] text-[var(--accent)] mb-8 uppercase">
-					Agent orchestration for your codebase.
+					An IDE for a team of agents.
 				</p>
 
 				<p className="text-base text-[var(--muted)] max-w-2xl mb-4 leading-relaxed">
-					Run a team of AI agents that triage work, write code in parallel branches,
-					and merge when done. K2SO is an open-source desktop app that turns CLI agents
-					into a managed engineering workforce.
+					Open-source, native code editor with a built-in agent manager. Run any
+					CLI agent — Claude, Codex, Gemini, Aider — in parallel branches. Your
+					keys, your terminals, your workflow.
 				</p>
 
 				<p className="text-sm text-[var(--dim)] mb-12">
