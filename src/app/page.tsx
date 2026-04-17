@@ -918,18 +918,34 @@ export default async function Home() {
 			{/* Companion */}
 			<section className="border-t border-[var(--border)] px-6 py-20">
 				<div className="max-w-3xl mx-auto text-center">
-					<p className="text-[var(--accent)] text-xs tracking-wide mb-3 uppercase">Mobile</p>
+					<p className="text-[var(--accent)] text-xs tracking-wide mb-3 uppercase">Mobile — Available Now</p>
 					<h2 className="text-2xl font-semibold mb-4">Take it with you</h2>
 					<p className="text-[var(--muted)] text-sm mb-8 max-w-md mx-auto leading-relaxed">
 						K2SO Companion puts your agent workspace on your phone. Monitor agents,
 						chat with running sessions, and approve reviews — all from mobile.
 					</p>
-					<Link
-						href="/companion"
-						className="inline-flex items-center gap-2 border border-[var(--border)] text-[var(--muted)] font-medium px-6 py-3 hover:border-[var(--accent-dim)] hover:text-white transition-colors text-sm"
-					>
-						K2SO Companion &rarr;
-					</Link>
+					<div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+						<a
+							href="https://apps.apple.com/us/app/k2so/id6762076766"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="Download on the App Store"
+							className="inline-block hover:opacity-80 transition-opacity"
+						>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="156" height="52" role="img">
+								<rect width="120" height="40" rx="6" fill="#000" stroke="#A6A6A6" strokeWidth="0.5" />
+								<path fill="#fff" d="M17.1 20.5c0-1.8 1-2.8 1-2.8s-.6-1-1.7-1c-1.2-.1-2.3.7-2.9.7-.6 0-1.5-.7-2.5-.7-1.3 0-2.5.7-3.2 1.9-1.4 2.4-.4 5.9.9 7.9.7 1 1.4 2 2.4 2 1 0 1.3-.6 2.5-.6 1.1 0 1.4.6 2.5.6 1 0 1.7-1 2.4-2 .5-.7.8-1.4 1-2.1-.9-.4-2.4-1.3-2.4-3.9zM15.2 15.3c.5-.6.9-1.5.8-2.4-.8 0-1.7.5-2.3 1.2-.5.6-.9 1.5-.8 2.3.9 0 1.8-.5 2.3-1.1z" />
+								<text x="31" y="17" fill="#fff" fontFamily="-apple-system, system-ui, sans-serif" fontSize="7" fontWeight="400">Download on the</text>
+								<text x="31" y="30" fill="#fff" fontFamily="-apple-system, system-ui, sans-serif" fontSize="14" fontWeight="600">App Store</text>
+							</svg>
+						</a>
+						<Link
+							href="/companion"
+							className="inline-flex items-center gap-2 text-[var(--muted)] hover:text-white transition-colors text-sm"
+						>
+							Learn more &rarr;
+						</Link>
+					</div>
 				</div>
 			</section>
 
