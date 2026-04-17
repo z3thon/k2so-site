@@ -196,25 +196,11 @@ export default function CompanionPage() {
 								<div className="flex flex-col h-full">
 									{/* Header */}
 									<div className="flex items-center justify-between px-3 py-3 border-b border-[#1a1a1a] mt-6" style={{ background: '#111' }}>
+										<div className="font-mono font-bold text-[14px] tracking-wider" style={{ color: '#22d3ee' }}>K2</div>
+										<span className="text-[9px] text-[#71717a]">4 active</span>
 										<div className="flex items-center gap-2">
-											{/* Hamburger */}
-											<div className="w-6 h-6 flex flex-col items-center justify-center gap-[3px]" style={{ background: '#22d3ee' }}>
-												<div className="h-[2px] w-3 bg-black" />
-												<div className="h-[2px] w-3 bg-black" />
-												<div className="h-[2px] w-3 bg-black" />
-											</div>
-											<div className="flex items-center gap-1.5">
-												<div className="w-3 h-3 flex items-center justify-center text-[7px] font-bold text-black" style={{ background: '#22d3ee' }}>M</div>
-												<span className="text-[10px] text-[#e4e4e7] font-semibold">my-project</span>
-												<span className="text-[7px] text-[#22c55e]">3 agents</span>
-											</div>
-										</div>
-										<div className="flex items-center gap-2">
-											<span className="text-[#71717a] text-[10px]">&#128269;</span>
-											<div className="relative">
-												<span className="text-[#71717a] text-[11px]">&#9634;</span>
-												<span className="absolute -top-1 -right-1 w-2.5 h-2.5 flex items-center justify-center text-[6px] font-bold text-black" style={{ background: '#22d3ee' }}>3</span>
-											</div>
+											<span className="text-[#71717a] text-[11px]">&#8635;</span>
+											<div className="w-5 h-5 flex items-center justify-center text-[12px] border" style={{ borderColor: '#22d3ee', color: '#22d3ee' }}>+</div>
 										</div>
 									</div>
 									{/* Session cards */}
